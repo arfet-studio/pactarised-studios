@@ -1,0 +1,59 @@
+/* Default Light Mode */
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Navigation Bar Styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: #007BFF;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Content Section Styles */
+section {
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Button Styles */
+#darkModeToggle {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#darkModeToggle:hover {
+    background-color: #0056b3;
+}
