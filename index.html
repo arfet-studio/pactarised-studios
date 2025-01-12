@@ -6,134 +6,112 @@
     <title>Home - ArfetOfficiel</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Base Styles */
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            overflow-x: hidden;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            background: #333;
+            justify-content: center;
+            background-color: #333;
+            list-style: none;
             padding: 10px;
-            animation: slideDown 1s ease-out;
+            margin: 0;
         }
 
         nav ul li {
-            margin-right: 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
+            font-weight: bold;
         }
 
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            background: orange;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            transform: translateX(0);
-        }
-
-        section {
-            padding: 20px;
-            animation: fadeIn 1.5s ease;
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        nav ul li a:hover {
             color: orange;
-            animation: bounce 2s infinite;
         }
 
-        h2 {
-            margin-bottom: 15px;
-            animation: fadeInLeft 1.2s ease;
+        h1, h2 {
+            text-align: center;
         }
 
         .content-box {
-            margin-bottom: 30px;
-            background: #f9f9f9;
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        /* Logo Animation */
+        .logo {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            height: auto;
             border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: zoomIn 1s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeInScale 2s ease-in-out; /* Apply animation */
         }
 
-        .settings {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #ffffff, #f0f0f0);
-            animation: pulse 2s infinite;
+        /* Fade-In and Scale Animation */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
+        /* Button Hover Animation */
         button {
-            cursor: pointer;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            background: orange;
+            background-color: orange;
             color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px auto;
+            display: block;
+            animation: bounce 2s infinite; /* Button animation */
         }
 
         button:hover {
-            background-color: #ff6600;
-            transform: scale(1.1);
+            background-color: darkorange;
         }
 
-        /* Dark Mode */
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
+        /* Bounce Animation */
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        body.dark-mode nav {
+            background-color: #222;
+        }
+
+        body.dark-mode nav ul li a {
+            color: lightgray;
+        }
+
+        body.dark-mode nav ul li a:hover {
+            color: orange;
         }
     </style>
 </head>
@@ -154,7 +132,10 @@
         <h1>Welcome to ArfetOfficiel</h1>
         <p>Your go-to source for tutorials, insights, and innovations in technology.</p>
 
-        <!-- Additional Information Section -->
+        <!-- Logo Image -->
+        <img src="images/2025 logo.PNG" alt="Arfet Logo" class="logo">
+
+        <!-- Additional Content -->
         <div class="content-box">
             <h2>What We Offer</h2>
             <p>At ArfetOfficiel, we specialize in:</p>
@@ -165,17 +146,6 @@
                 <li>Exploring trends in software development and open-source tools</li>
             </ul>
         </div>
-
-        <!-- Highlights Section -->
-        <div class="content-box">
-            <h2>Latest Highlights</h2>
-            <p>Check out our latest video tutorials and resources, including:</p>
-            <ul>
-                <li><strong>Guide:</strong> Setting up a Virtual Machine using Oracle VirtualBox</li>
-                <li><strong>Demo:</strong> Exploring the capabilities of Raspberry Pi as a web server</li>
-                <li><strong>Resources:</strong> Download our curated list of essential software tools</li>
-            </ul>
-        </div>
     </section>
 
     <!-- Settings Section -->
@@ -184,16 +154,6 @@
         <div>
             <label for="modeToggle">Dark Mode:</label>
             <button id="modeToggle">Enable Dark Mode</button>
-        </div>
-        <div>
-            <label for="fontSize">Adjust Font Size:</label>
-            <button onclick="adjustFontSize('small')">Small</button>
-            <button onclick="adjustFontSize('medium')">Medium</button>
-            <button onclick="adjustFontSize('large')">Large</button>
-        </div>
-        <div>
-            <label for="bgColor">Customize Background:</label>
-            <input type="color" id="bgColor" onchange="changeBackgroundColor(this.value)">
         </div>
     </section>
 
@@ -207,22 +167,6 @@
             darkModeEnabled = !darkModeEnabled;
             modeToggle.textContent = darkModeEnabled ? 'Disable Dark Mode' : 'Enable Dark Mode';
         });
-
-        // Adjust Font Size
-        function adjustFontSize(size) {
-            if (size === 'small') {
-                document.body.style.fontSize = '14px';
-            } else if (size === 'medium') {
-                document.body.style.fontSize = '16px';
-            } else if (size === 'large') {
-                document.body.style.fontSize = '18px';
-            }
-        }
-
-        // Change Background Color
-        function changeBackgroundColor(color) {
-            document.body.style.backgroundColor = color;
-        }
     </script>
 </body>
 </html>
