@@ -5,25 +5,209 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - ArfetOfficiel</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 10px;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            animation: fadeInUp 1s ease;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 1.2s ease-out;
+        }
+
+        .contact-container h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: orange;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: orange;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6600;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Dark Mode Styling */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        body.dark-mode nav {
+            background-color: #222;
+        }
+
+        body.dark-mode nav ul li a {
+            color: lightgray;
+        }
+
+        body.dark-mode nav ul li a:hover {
+            color: orange;
+        }
+
+        body.dark-mode .contact-container {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode input, body.dark-mode textarea {
+            background-color: #333;
+            color: white;
+            border-color: #555;
+        }
+
+        body.dark-mode button {
+            background-color: #ff6600;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="videos.html">Videos</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="#" id="darkModeToggle">Toggle Dark Mode</a></li>
+            <li><a href="#settings">Settings</a></li>
         </ul>
     </nav>
 
-    <!-- Contact Content -->
-    <section id="contact">
+    <!-- Main Contact Form Section -->
+    <section>
         <h1>Contact Us</h1>
-        <p>Feel free to reach out to us via email at <strong>arfetgroup@gmail.com</strong>.</p>
+        <p>We’d love to hear from you! Fill out the form below or reach us via email at <strong>arfetgroup@gmail.com</strong>.</p>
+
+        <!-- Contact Form Container -->
+        <div class="contact-container">
+            <h2>Get in Touch</h2>
+            <form action="mailto:arfetgroup@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Settings Section -->
+    <section id="settings" class="settings">
+        <h3>Settings</h3>
+        <div>
+            <label for="modeToggle">Dark Mode:</label>
+            <button id="modeToggle">Enable Dark Mode</button>
+        </div>
+    </section>
+
+    <script>
+        // Toggle Dark Mode
+        const modeToggle = document.getElementById('modeToggle');
+        let darkModeEnabled = false;
+
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            darkModeEnabled = !darkModeEnabled;
+            modeToggle.textContent = darkModeEnabled ? 'Disable Dark Mode' : 'Enable Dark Mode';
+        });
+    </script>
 </body>
 </html>
