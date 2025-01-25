@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          
+        }
+    </style>
+</head>
+<body>
+
+    <div class="numbers" id="numbers"></div>
+
+    <div class="clue">7c7d7f6a-db4f-11ef-a127-78e3b517e592</div>
+
+    <div class="static-overlay"></div>
+
+    <div class="hidden-face"></div>
+
+    <div class="distorted-text"> dbDAT2@ xN0T f0UnxD</div>
+
+    <script>
+        // Generate random numbers and append them to the body
+        function generateNumbers() {
+            const numbersContainer = document.getElementById('numbers');
+            for (let i = 0; i < 1000; i++) {
+                const numberElement = document.createElement('div');
+                numberElement.classList.add('number');
+                numberElement.textContent = Math.floor(Math.random() * 10000);
+                numberElement.style.animationDelay = `${Math.random() * 0.5}s`;
+                numbersContainer.appendChild(numberElement);
+            }
+        }
+
+        generateNumbers();
+
+        // Randomly change number content to mimic corruption
+        setInterval(() => {
+            const numbers = document.querySelectorAll('.number');
+            numbers.forEach(number => {
+                if (Math.random() > 0.6) {
+                    number.textContent = Math.floor(Math.random() * 10000);
+                }
+            });
+        }, 200);
+    </script>
+</body>
+</html>
